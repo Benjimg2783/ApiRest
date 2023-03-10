@@ -26,7 +26,7 @@ class SessionsController {
      * @see [SesionServiceAPI]
      */
     @Autowired
-    lateinit var sessionService: SessionServiceAPI;
+    lateinit var sessionService: SessionServiceAPI
 
     /**
      * ### GET ALL SESSIONS

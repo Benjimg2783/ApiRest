@@ -53,7 +53,7 @@ class UsersController {
      * @return [ResponseEntity] con un [User]
      */
     @GetMapping("/{nick}")
-    fun getUserByNickName(@PathVariable("nick") nick: String): ResponseEntity<User> {
+    fun getUserByNick(@PathVariable("nick") nick: String): ResponseEntity<User> {
         val user = userService.getUserByNick(nick)
         return if (user != null) {
             ResponseEntity.ok(user)
@@ -93,7 +93,7 @@ class UsersController {
      */
     @DeleteMapping("/{nick}")
 fun deleteUser(@PathVariable("nick") nick: String) {
-        if (userService.deleteUsersByNickName(nick)) {
+        if (userService.deleteUsersByNick(nick)) {
             ResponseEntity<Unit>(HttpStatus.OK)
         } else {
             ResponseEntity<Unit>(HttpStatus.NOT_FOUND)

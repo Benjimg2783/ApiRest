@@ -16,11 +16,11 @@ class UserServiceImpl : UserServiceAPI, GenericServiceImpl<User, Long>() {
         get() = repository
 
     override fun getUserByNick(nick: String): User? {
-        return if (!repository.findUsersByNickName(nick).isNullOrEmpty()) repository.findUsersByNickName(nick)?.first()
+        return if (!repository.findUsersByNick(nick).isNullOrEmpty()) repository.findUsersByNick(nick)?.first()
         else null
     }
-    override fun getUsersByNickName(nick: String): List<User>? = repository.findUsersByNickName(nick)
-    override fun deleteUsersByNickName(nick: String):Boolean {
+    override fun getUsersByNick(nick: String): List<User>? = repository.findUsersByNick(nick)
+    override fun deleteUsersByNick(nick: String):Boolean {
         val user = getUserByNick(nick)
         return if (user!= null) {
             eliminar(user.id!!)
